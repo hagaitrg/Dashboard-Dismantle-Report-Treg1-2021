@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class RecabP23 extends Model
 {
     use HasFactory;
+
+    public function month()
+    {
+        return $this->hasOne(Month::class);
+    }
 }

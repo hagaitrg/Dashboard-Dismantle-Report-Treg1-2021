@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRecabP23STable extends Migration
+class CreateDismantlesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateRecabP23STable extends Migration
      */
     public function up()
     {
-        Schema::create('recab_p23', function (Blueprint $table) {
+        Schema::create('dismantles', function (Blueprint $table) {
             $table->id();
+            $table->string("area");
             $table->unsignedBigInteger('month_id');
             $table->foreign('month_id')->references('id')->on('months');
-            $table->integer('ap');
-            $table->integer('poe');
-            $table->integer('brc');
+            $table->string("sn");
+            $table->string("poe");
+            $table->string('bracket');
+            $table->string('candidate');
+            $table->string('evidence');
         });
     }
 
@@ -30,6 +33,6 @@ class CreateRecabP23STable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recab_p23_s');
+        Schema::dropIfExists('dismantles');
     }
 }
