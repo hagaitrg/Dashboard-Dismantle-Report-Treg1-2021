@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DismantleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/tambah-dismantle', function () {
     return view('add-dismantle');
 });
+
+Route::post('/create-dismantle', [DismantleController::class, 'store']);

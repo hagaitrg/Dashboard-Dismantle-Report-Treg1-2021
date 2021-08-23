@@ -9,6 +9,14 @@ class Dismantle extends Model
 {
     use HasFactory;
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'evidence' => (bool) $this->evidence,
+        ]);
+    }
+
+
     /**
      * Get the user that owns the Dismantle
      *
