@@ -19,6 +19,11 @@ class Dismantle extends Model
         return $this->belongsTo(Month::class);
     }
 
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
+    }
+
     /**
      * Get the user that owns the Dismantle
      *

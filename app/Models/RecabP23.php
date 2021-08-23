@@ -13,4 +13,8 @@ class RecabP23 extends Model
     {
         return $this->hasOne(Month::class);
     }
+
+    public function area(){
+        return $this->hasOne(Area::class);
+    }
 }
