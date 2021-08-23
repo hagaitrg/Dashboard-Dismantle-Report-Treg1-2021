@@ -19,6 +19,6 @@ class Area extends Model
      */
     public function recabp23()
     {
-        return $this->belongsTo(recabp23::class);
+        return $this->hasOne(recabp23::class);
     }
 }

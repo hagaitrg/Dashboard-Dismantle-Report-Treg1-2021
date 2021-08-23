@@ -75,7 +75,7 @@
                     </select>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="evidance[]" name="evidance[]" value="1">
+                    <input type="checkbox" class="form-check-input" id="evidence" name="evidence">
                     <label class="form-check-label" for="evidance">Evidance</label>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Tambah</button>

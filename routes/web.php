@@ -14,12 +14,10 @@ use App\Http\Controllers\DismantleController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/tambah-dismantle', function () {
     return view('add-dismantle');
 });
 
+Route::get('/', [DismantleController::class, 'index']);
 Route::post('/create-dismantle', [DismantleController::class, 'store']);
+Route::delete('/delete-dismantle/{id}', [DismantleController::class, 'destroy']);

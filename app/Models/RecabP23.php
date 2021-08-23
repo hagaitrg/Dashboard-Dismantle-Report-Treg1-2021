@@ -11,10 +11,10 @@ class RecabP23 extends Model
 
     public function month()
     {
-        return $this->hasOne(Month::class);
+        return $this->belongsTo(Month::class);
     }
 
     public function area(){
-        return $this->hasOne(Area::class);
+        return $this->belongsTo(Area::class);
     }
 }

@@ -15,7 +15,9 @@ class DismantleController extends Controller
      */
     public function index()
     {
-        //
+        $dismantles = Dismantle::all();
+
+        return view('home', compact('dismantles'));
     }
 
     /**
@@ -36,6 +38,11 @@ class DismantleController extends Controller
      */
     public function store(Request $request)
     {
+
+        $coba = "unchecked";
+        if(isset($request->evidence)){
+            $coba = "checked";
+        }
         $dismantle = Dismantle::insert([
             'area_id' => $request->area_id,
             'month_id' => $request->month_id,
@@ -43,7 +50,7 @@ class DismantleController extends Controller
             'poe' => $request->poe,
             'bracket' => $request->bracket,
             'candidate' => $request->candidate,
-            'evidence' => $request->has('evidence')
+            'evidence' => $coba
         ]);
 
         
@@ -102,6 +109,11 @@ class DismantleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dismantle = Dismantle::findOrFail($id);
+
+        $dismantle->delete();
+
+        return redirect('/');
+
     }
 }
