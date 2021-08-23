@@ -20,4 +20,6 @@ Route::get('/tambah-dismantle', function () {
 
 Route::get('/', [DismantleController::class, 'index']);
 Route::post('/create-dismantle', [DismantleController::class, 'store']);
+Route::get('/edit-dismantle/{id}', [DismantleController::class, 'edit']);
 Route::delete('/delete-dismantle/{id}', [DismantleController::class, 'destroy']);
+Route::patch('/update-dismantle/{id}', [DismantleController::class, 'update']);

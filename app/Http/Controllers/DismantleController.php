@@ -86,7 +86,9 @@ class DismantleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dismantle = Dismantle::findOrFail($id);
+
+        return view('edit-dismantle', compact('dismantle'));
     }
 
     /**
@@ -98,7 +100,11 @@ class DismantleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dismantle = Dismantle::findOrFail($id);
+
+        $dismantle->update($request->all());
+
+        return redirect('/');
     }
 
     /**
