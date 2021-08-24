@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dismantle;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\DB;
 
 class DismantleController extends Controller
 {
@@ -17,7 +18,21 @@ class DismantleController extends Controller
     {
         $dismantles = Dismantle::all();
 
-        return view('home', compact('dismantles'));
+        return view('dismantle', compact('dismantles'));
+    }
+
+    public function indexDashboard()
+    {
+        $dismantles = Dismantle::all();
+
+        $poe = DB::table('dismantles')->where('poe','=','ada')->count();
+        $bracket = DB::table('dismantles')->where('bracket','=','ada')->count();
+        $p2 = DB::table('dismantles')->where('candidate','=','p2')->count();
+        $p3 = DB::table('dismantles')->where('candidate','=','p3')->count();
+        $p23 = $p2 + $p3;
+        $unlist = DB::table('dismantles')->where('candidate','=','unlist')->count();
+
+        return view('home', compact('dismantles','poe','bracket','p23', 'unlist'));
     }
 
     /**
@@ -53,17 +68,16 @@ class DismantleController extends Controller
             'evidence' => $coba
         ]);
 
+
         
 
         if (!$dismantle) {
-            Toastr::error('Gagal tambah dismantle!', 'Info');
-
-            return redirect('/');
+            Toastr::error('Gagal tambah dismantle', 'Title', ["positionClass" => "toast-top-center"]);
         }else{
-            Toastr::success('Berhasil tambah dismantle!', 'Info');
-
-            return redirect('/');
+            Toastr::success('Berhasil tambah dismantle', 'Title', ["positionClass" => "toast-top-center"]);
         }
+
+        return redirect('/dismantle');
 
     }
 
@@ -100,11 +114,29 @@ class DismantleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $dismantle = Dismantle::findOrFail($id);
 
-        $dismantle->update($request->all());
+        $coba = "unchecked";
+        if(isset($request->evidence)){
+            $coba = "checked";
+        }
 
-        return redirect('/');
+        $update = Dismantle::where('id', $id)->update([
+            'area_id' => $request->area_id,
+            'month_id' => $request->month_id,
+            'sn' => $request->sn,
+            'poe' => $request->poe,
+            'bracket' => $request->bracket,
+            'candidate' => $request->candidate,
+            'evidence' => $coba
+        ]);
+
+        if (!$update) {
+            Toastr::error('Gagal ubah dismantle!', 'Info');
+        }else{
+            Toastr::success('Berhasil ubah dismantle!', 'Info');
+        }
+
+        return redirect('/dismantle');
     }
 
     /**
@@ -119,7 +151,13 @@ class DismantleController extends Controller
 
         $dismantle->delete();
 
-        return redirect('/');
+        if (!$dismantle) {
+            Toastr::error('Gagal hapus dismantle!', 'Info');
+        }else{
+            Toastr::success('Berhasil hapus dismantle!', 'Info');
+        }
+
+        return redirect('/dismantle');
 
     }
 }

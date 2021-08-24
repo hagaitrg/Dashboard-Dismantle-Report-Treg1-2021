@@ -9,6 +9,9 @@ class Dismantle extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    protected $fillable = ['area_id', 'month_id', 'poe', 'bracket', 'candidate', 'evidence'];
+
     protected function prepareForValidation()
     {
         $this->merge([
