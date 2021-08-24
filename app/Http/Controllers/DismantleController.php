@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dismantle;
+use App\Models\Month;
+use App\Models\Area;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +26,8 @@ class DismantleController extends Controller
     public function indexDashboard()
     {
         $dismantles = Dismantle::all();
+        $month = Month::all();
+        $area = Area::all();
 
         $poe = DB::table('dismantles')->where('poe','=','ada')->count();
         $bracket = DB::table('dismantles')->where('bracket','=','ada')->count();
@@ -32,7 +36,7 @@ class DismantleController extends Controller
         $p23 = $p2 + $p3;
         $unlist = DB::table('dismantles')->where('candidate','=','unlist')->count();
 
-        return view('home', compact('dismantles','poe','bracket','p23', 'unlist'));
+        return view('home', compact('dismantles','poe','bracket','p23', 'unlist', 'month', 'area'));
     }
 
     /**

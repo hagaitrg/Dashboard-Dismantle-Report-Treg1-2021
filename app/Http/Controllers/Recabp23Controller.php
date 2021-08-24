@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Dismantle;
 use App\Models\Month;
 use App\Models\Area;
 use Illuminate\Support\Facades\DB;
@@ -17,11 +16,34 @@ class Recabp23Controller extends Controller
      */
     public function index()
     {
-        $dismantles = Dismantle::all();
+        // $dismantles = Dismantle::all();
         $month = Month::all();
         $area = Area::all();
 
-        return view('recabp23', compact('dismantles','month','area'));
+        // $poe = DB::table('dismantles')->where('poe','=','ada')->count();
+        // $bracket = DB::table('dismantles')->where('bracket','=','ada')->count();
+        // $p2 = DB::table('dismantles')->where('candidate','=','p2')->count();
+        // $p3 = DB::table('dismantles')->where('candidate','=','p3')->count();
+        // $unlist = DB::table('dismantles')->where('candidate','=','unlist')->count();
+        // $evidence = DB::table('dismantles')->where('evidence','=','checked')->count();
+
+        //     $poe = Dismantle::where('area_id','=', '1')
+        //     ->where('month_id','=', '1')
+        //     ->where('poe','=','ada')->count();
+        
+        //     $p2 = Dismantle::where('area_id','=', '1')
+        //     ->where('month_id','=', '1')
+        //     ->where('candidate','=','p2')->count();
+        
+        //     $p3 = Dismantle::where('area_id','=', '1')
+        //     ->where('month_id','=', '1')
+        //     ->where('candidate','=','p3')->count();
+        
+        //     $ap =$poe + $p2 + $p3;
+        
+        // dd($ap);
+
+        return view('recabp23', compact('month','area'));
     }
 
     /**
