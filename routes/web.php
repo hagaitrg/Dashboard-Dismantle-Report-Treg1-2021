@@ -27,3 +27,7 @@ Route::patch('/update-dismantle/{id}', [DismantleController::class, 'update']);
 
 
 Route::get('/recabp23', [Recabp23Controller::class, 'index']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

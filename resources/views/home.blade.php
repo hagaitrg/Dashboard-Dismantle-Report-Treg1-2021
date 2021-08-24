@@ -78,7 +78,7 @@
 </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Dismantle AP  </h6>
+            <h6 class="m-0 font-weight-bold text-primary">LAPORAN DISMANTLE AP TR1 -2021</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -140,7 +140,7 @@
                                         @foreach ($area as $v => $a)
                                         <tr>
                                             <td><strong>{{$a->name}}</strong></td>
-                                            @for ($j = 0; $j < count($month); $j++)
+                                            @for ($j = 1; $j <= count($month); $j++)
 
                                         
                                             @php 

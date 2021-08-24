@@ -45,7 +45,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
                 <a class="nav-link" href="/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -54,7 +54,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('dismantle') ? 'active' : '' }}">
                 <a class="nav-link" href="/dismantle">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Dismantle AP</span></a>
@@ -64,7 +64,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('recabp23') ? 'active' : '' }}">
                 <a class="nav-link" href="/recabp23">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Recab P23</span></a>

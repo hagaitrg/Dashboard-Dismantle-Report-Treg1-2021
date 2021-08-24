@@ -29,7 +29,7 @@
                                         @foreach ($area as $v => $a)
                                         <tr>
                                             <td><strong>{{$a->name}}</strong></td>
-                                            @for ($j = 0; $j < count($month); $j++)
+                                            @for ($j = 1; $j <= count($month); $j++)
 
                                         
                                             @php 
