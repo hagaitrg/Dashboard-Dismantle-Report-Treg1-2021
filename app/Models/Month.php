@@ -24,9 +24,5 @@ class Month extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function recabp23()
-    {
-        return $this->hasOne(recabp23::class);
-    }
 
 }
