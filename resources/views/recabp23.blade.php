@@ -4,13 +4,13 @@
 
 <div class="container-fluid">
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">DISMANTLING AP P2 & P3 TR1 - 2021 Monthly </h6>
+        <div class="card-header py-3 bg-danger">
+            <h6 class="m-0 font-weight-bold text-white">DISMANTLING AP P2 & P3 TR1 - 2021 Monthly </h6>
         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" width="100%" cellspacing="0">
-                                    <thead class="text-center">
+                                    <thead class="text-center bg-danger text-white">
                                         <tr>
                                             <th rowspan="2" class="text-center align-middle">Area</th>
                                             @foreach($month as $value => $m)
