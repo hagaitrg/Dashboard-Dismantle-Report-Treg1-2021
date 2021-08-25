@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Edit data Dismantle AP</h6>
+            <h6 class="m-0 font-weight-bold text-danger">Edit data Dismantle AP</h6>
         </div>
             <div class="card-body">
             <form method="POST" action="/update-dismantle/{{$dismantle->id}}">
@@ -79,7 +79,7 @@
                     <input type="checkbox" class="form-check-input" id="evidence" name="evidence">
                     <label class="form-check-label" for="evidance">Evidance</label>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Update</button>
+                <button type="submit" class="btn btn-danger rounded-pill btn-block">Update</button>
             </form>
             </div>  
         </div>

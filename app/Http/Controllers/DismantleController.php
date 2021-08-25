@@ -36,7 +36,7 @@ class DismantleController extends Controller
         $p23 = $p2 + $p3;
         $unlist = DB::table('dismantles')->where('candidate','=','unlist')->count();
 
-        return view('home', compact('dismantles','poe','bracket','p23', 'unlist', 'month', 'area'));
+        return view('dashboard', compact('dismantles','poe','bracket','p23', 'unlist', 'month', 'area', 'p2', 'p3'));
     }
 
     /**
