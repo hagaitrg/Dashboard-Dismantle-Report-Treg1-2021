@@ -7,7 +7,7 @@
             <h6 class="m-0 font-weight-bold text-danger">Tambah data Dismantle AP</h6>
         </div>
             <div class="card-body">
-            <form method="POST" action="/create-dismantle">
+            <form method="POST" action="/dismantle/create">
             @csrf
                 <div class="form-group">
                     <label for="area_id">Area</label>

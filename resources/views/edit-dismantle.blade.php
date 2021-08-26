@@ -7,7 +7,7 @@
             <h6 class="m-0 font-weight-bold text-danger">Edit data Dismantle AP</h6>
         </div>
             <div class="card-body">
-            <form method="POST" action="/update-dismantle/{{$dismantle->id}}">
+            <form method="POST" action="/dismantle/update/{{$dismantle->id}}">
             @csrf
             @method('patch')
                 <div class="form-group">

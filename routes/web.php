@@ -15,19 +15,25 @@ use App\Http\Controllers\Recabp23Controller;
 |
 */
 
-Route::middleware('auth')->group(function(){
+// can access routes after login
+    Route::middleware('auth')->group(function(){
     
-    Route::get('/tambah-dismantle', function () {
-        return view('add-dismantle');
-    });
+    // Dashboard routes
     Route::get('/', [DismantleController::class, 'indexDashboard']);
-    Route::get('/dismantle', [DismantleController::class, 'index']);
-    Route::post('/create-dismantle', [DismantleController::class, 'store']);
-    Route::get('/edit-dismantle/{id}', [DismantleController::class, 'edit']);
-    Route::delete('/delete-dismantle/{id}', [DismantleController::class, 'destroy']);
-    Route::patch('/update-dismantle/{id}', [DismantleController::class, 'update']);
+    
+    // dismantle routes
+    Route::prefix('dismantle')->group(function () {
+        Route::get('/tambah', function () {
+            return view('add-dismantle');
+        });
+        Route::get('/', [DismantleController::class, 'index']);
+        Route::post('/create', [DismantleController::class, 'store']);
+        Route::get('/edit/{id}', [DismantleController::class, 'edit']);
+        Route::delete('/delete/{id}', [DismantleController::class, 'destroy']);
+        Route::patch('/update/{id}', [DismantleController::class, 'update']);
+    });
 
-
+    // recabp23 routes
     Route::get('/recabp23', [Recabp23Controller::class, 'index']);
 });
 
